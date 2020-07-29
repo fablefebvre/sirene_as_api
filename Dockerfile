@@ -1,4 +1,4 @@
-FROM ruby:2.4-stretch
+FROM ruby:2.6-stretch
 
 # Install project dependencies
 RUN apt-get update -qq && apt-get install -y build-essential \
@@ -12,7 +12,7 @@ RUN apt-get update -qq && apt-get install -y build-essential \
   # for cron scheduler job
   cron \
   vim
-RUN gem install bundler --version 2.0.2 --force
+RUN gem install bundler
 
 # Add the waiting script for postgre starting
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
